@@ -15,7 +15,7 @@ function About() {
   return (
     <Box my={4}>
       <Typography variant="h4" component="h1" gutterBottom>
-        Timesheet prototype with Material-UI
+        Timesheet demo with Material-UI
       </Typography>
       <ProTip />
       <Typography variant="body2" color="textSecondary" align="center">
