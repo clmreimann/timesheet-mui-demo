@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/timesheet-mui-demo/static/js/main.e8ce659b.chunk.js",
+    "main.js.map": "/timesheet-mui-demo/static/js/main.e8ce659b.chunk.js.map",
+    "runtime-main.js": "/timesheet-mui-demo/static/js/runtime-main.25f16849.js",
+    "runtime-main.js.map": "/timesheet-mui-demo/static/js/runtime-main.25f16849.js.map",
+    "static/js/2.cb29775f.chunk.js": "/timesheet-mui-demo/static/js/2.cb29775f.chunk.js",
+    "static/js/2.cb29775f.chunk.js.map": "/timesheet-mui-demo/static/js/2.cb29775f.chunk.js.map",
+    "index.html": "/timesheet-mui-demo/index.html",
+    "static/js/2.cb29775f.chunk.js.LICENSE.txt": "/timesheet-mui-demo/static/js/2.cb29775f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.25f16849.js",
+    "static/js/2.cb29775f.chunk.js",
+    "static/js/main.e8ce659b.chunk.js"
+  ]
+}
