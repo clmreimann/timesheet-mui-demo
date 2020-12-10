@@ -33,9 +33,6 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Run the Tests
-      run: npm test
-
     - name: Deploy
       run: |
         git config --global user.name $user_name
