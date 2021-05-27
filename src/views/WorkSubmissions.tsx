@@ -17,6 +17,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import TimerIcon from "@material-ui/icons/Timer";
 import WorkEntry from "../model/WorkEntry";
 import Typography from "@material-ui/core/Typography";
+import { isPropertySignature } from "typescript";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -59,53 +60,127 @@ function WorkStatusIcon(props: any) {
 }
 
 export default function WorkSubmissions() {
-  const entries: Array<WorkEntry> = [
+  const entriesP1: Array<WorkEntry> = [
     {
       id: 1,
-      name: "Heribert Leutner",
+      name: "Max Müller",
       date: new Date(2020, 11, 24),
-      task: "Fundament",
+      task: "Design Frontend",
       work: 3,
       status: 1,
-      comment: "Grundstein gelegt"
+      comment: "create design concept for frontend"
     },
     {
       id: 2,
-      name: "Heribert Leutner",
+      name: "Max Müller",
       date: new Date(2020, 11, 25),
-      task: "Fundament",
-      work: 2,
+      task: "Backend Architecture",
+      work: 6,
       status: 1,
-      comment: "Fundament gegossen"
+      comment: "create concept for backend architecture"
     },
     {
       id: 3,
-      name: "Heribert Leutner",
-      date: new Date(2020, 11, 25),
-      task: "Rohbau",
-      work: 6,
-      status: 1,
-      comment: "Maurerarbeiten"
-    },
+      name: "Max Müller",
+      date: new Date(2020, 11, 26),
+      task: "Backend Development",
+      work: 2,
+      status: 3,
+      comment: "build database structure"
+    }
+  ];
+
+  const entriesP2: Array<WorkEntry> = [
     {
       id: 4,
-      name: "Heribert Leutner",
+      name: "Max Müller",
       date: new Date(2020, 11, 25),
-      task: "Rohbau",
+      task: "Design Frontend",
       work: 2,
-      status: 2,
-      comment: "Maurerarbeiten"
+      status: 1,
+      comment: "create design concept for frontend"
     },
     {
       id: 5,
-      name: "Heribert Leutner",
-      date: new Date(2020, 11, 26),
-      task: "Elektrik",
+      name: "Max Müller",
+      date: new Date(2020, 11, 25),
+      task: "Backend Architecture",
       work: 2,
-      status: 3,
-      comment: "Leitungen gelegt"
+      status: 2,
+      comment: "create concept for backend architecture"
     }
   ];
+
+  function WorkEntryItems(props: any) {
+  
+    let entries: Array<WorkEntry> = props.workEntries;
+
+    return (
+      <React.Fragment key={props.key}>
+        <ListSubheader>
+          <Typography variant="subtitle1" component="h1" gutterBottom>
+            {props.title}
+          </Typography>
+        </ListSubheader>        
+        {
+          entries.map((value, index) => {
+            const labelId = `checkbox-list-label-${index}`;
+
+            return (
+              <React.Fragment key={value.id}>
+                <ListItem
+                  key={`item-${value.id}`}
+                  role={undefined}
+                  dense
+                  button
+                  onClick={handleToggle(index)}
+                >
+                  <ListItemIcon>
+                    <WorkStatusIcon workEntry={value} />
+                  </ListItemIcon>
+                  <ListItemText
+                    id={labelId}
+                    primary={
+                      <React.Fragment>
+                        <Typography
+                          component="span"
+                          variant="subtitle2"
+                          className={classes.inline}
+                          color="textPrimary"
+                        >
+                          {`${value.work} h - `}
+                        </Typography>
+                        {`${value.task}`}
+                      </React.Fragment>
+                    }
+                    secondary={
+                      <React.Fragment>
+                        <Typography
+                          component="span"
+                          variant="subtitle2"
+                          className={classes.inline}
+                          color="textPrimary"
+                        >
+                          {`${value.date.toLocaleDateString()} - `}
+                        </Typography>
+                        {`${value.comment}`}
+                      </React.Fragment>
+                    }
+                  />
+                  <ListItemSecondaryAction>
+                    <IconButton edge="end" aria-label="comments">
+                      <EditIcon />
+                    </IconButton>
+                  </ListItemSecondaryAction>
+                </ListItem>
+                <Divider variant="fullWidth" component="li" />
+              </React.Fragment>
+            );
+          })          
+        }
+      </React.Fragment>
+    );
+  }
 
   const initialState: Array<number> = [];
   const [checked, setChecked] = React.useState(initialState);
@@ -127,65 +202,8 @@ export default function WorkSubmissions() {
 
   return (
     <List className={classes.root}>
-      <ListSubheader>
-        <Typography variant="subtitle1" component="h1" gutterBottom>
-          Elbphilharmonie
-        </Typography>
-      </ListSubheader>
-      {entries.map((value, index) => {
-        const labelId = `checkbox-list-label-${index}`;
-
-        return (
-          <React.Fragment key={value.id}>
-            <ListItem
-              key={`item-${value.id}`}
-              role={undefined}
-              dense
-              button
-              onClick={handleToggle(index)}
-            >
-              <ListItemIcon>
-                <WorkStatusIcon workEntry={value} />
-              </ListItemIcon>
-              <ListItemText
-                id={labelId}
-                primary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="subtitle2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      {`${value.work} h - `}
-                    </Typography>
-                    {`${value.task}`}
-                  </React.Fragment>
-                }
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      component="span"
-                      variant="subtitle2"
-                      className={classes.inline}
-                      color="textPrimary"
-                    >
-                      {`${value.date.toLocaleDateString()} - `}
-                    </Typography>
-                    {`${value.comment}`}
-                  </React.Fragment>
-                }
-              />
-              <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="comments">
-                  <EditIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
-            <Divider variant="fullWidth" component="li" />
-          </React.Fragment>
-        );
-      })}
+      <WorkEntryItems workEntries={entriesP1} key="P1" title="Webshop for Company XYZ"/>
+      <WorkEntryItems workEntries={entriesP2} key="P2" title="Dashboard for Company ABC"/>     
     </List>
   );
 }

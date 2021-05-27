@@ -60,41 +60,42 @@ export default function MyHoliday() {
   const entries: Array<HolidayEntry> = [
     {
       id: 1,
-      name: "Heribert Leutner",
+      name: "Max Müller",
       start: new Date(2020, 3, 2),
       end: new Date(2020, 3, 6),
       days: 5,
       status: 1,
-      comment: "Ich fliege nach Florida"
+      comment: "My flight goes to Florida"
     },
     {
       id: 2,
-      name: "Heribert Leutner",
-      start: new Date(2020, 3, 2),
-      end: new Date(2020, 3, 6),
+      name: "Max Müller",
+      start: new Date(2020, 7, 10),
+      end: new Date(2020, 7, 21),
       days: 5,
-      status: 1,
-      comment: "Ich fliege nach Florida"
+      status: 2,
+      comment: "I'm driving to Norway"
     },
     {
       id: 3,
-      name: "Heribert Leutner",
-      start: new Date(2020, 3, 2),
-      end: new Date(2020, 3, 6),
+      name: "Julia Becker",
+      start: new Date(2020, 6, 6),
+      end: new Date(2020, 6, 17),
       days: 5,
-      status: 1,
-      comment: "Ich fliege nach Florida"
+      status: 3,
+      comment: "I will stay in Sweden"
     },
     {
       id: 4,
-      name: "Heribert Leutner",
-      start: new Date(2020, 3, 2),
-      end: new Date(2020, 3, 6),
+      name: "Julia Becker",
+      start: new Date(2020, 11, 22),
+      end: new Date(2020, 11, 31),
       days: 5,
       status: 2,
-      comment: "Ich fliege nach Florida"
+      comment: "I will be in London"
     }
   ];
+
 
   const initialState: Array<number> = [];
   const [checked, setChecked] = React.useState(initialState);

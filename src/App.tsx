@@ -33,7 +33,7 @@ function About() {
 export default function App() {
   const [state, setState] = React.useState({
     open: false,
-    selectedView: 4
+    selectedView: 0
   });
 
   const open = state.open;
